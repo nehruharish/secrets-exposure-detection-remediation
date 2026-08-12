@@ -1,0 +1,10 @@
+title = "Secrets Exposure Detection Project"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Ignore only the synthetic portfolio test value"
+regexes = [
+  '''EXAMPLE_NOT_A_REAL_SECRET_[A-Z0-9_]+'''
+]
