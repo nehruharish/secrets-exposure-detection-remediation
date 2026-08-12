@@ -27,7 +27,12 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Terraform init
         working-directory: terraform
-        run: terraform init
+        run: |
+          terraform init \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="key=secrets-exposure-detection/dev/terraform.tfstate" \
+            -backend-config="region=eu-west-2"
+
       - name: Terraform fmt
         working-directory: terraform
         run: terraform fmt -check -recursive

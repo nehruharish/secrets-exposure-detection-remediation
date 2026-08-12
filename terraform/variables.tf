@@ -43,3 +43,9 @@ variable "alert_email" {
   type        = string
   default     = ""
 }
+
+variable "TF_STATE_BUCKET" {
+  description = "Bucket to store Terraform state file"
+  type        = string
+  default     = ""
+}
